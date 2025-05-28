@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
 function App() {
+  
   return (
     <div>
       <Router>
@@ -14,10 +15,12 @@ function App() {
           <Encabezado />
         </header>
         <main>
-          <Routes>
-            <Route path="/" element={<Inicio />} />
+          
+          <Routes>    
+                            
+            <Route  path="/" element={<Inicio />}/>
             <Route path="/cartas" element={<Cartas />} />
-            {/*<Route path='/contact' element={<Contact/>}  />*/}
+           
           </Routes>
         </main>
         <footer>
