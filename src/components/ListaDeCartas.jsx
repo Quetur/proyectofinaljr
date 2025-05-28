@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Row, Col, Container, Card } from 'react-bootstrap';
-import miLogo from './ProyectoFinal.png';
+import { Row, Col, Container, Card, Button } from 'react-bootstrap';
+import miLogo from './micard.png';
 
 const ListaDeCartas = () => { 
   const[personajes,setPersonajes]=useState([]);
@@ -26,21 +26,29 @@ const ListaDeCartas = () => {
 
   return (
     <Container className='mt-4'>
+     
      <Row>
       {personajes.map(char=>(
+         
         <Col key={char.id} md={4}>
-          <Card className="m-2">
-          <Card.Img src={char.imageUrl || miLogo}/>
-            <Card.Body>
-              <Card.Title>Nombre: {char.name}</Card.Title>
-                <Card.Text>
-                    <strong>Tipo: {char.type || 'N/A'}</strong>
-                </Card.Text>
-            </Card.Body>
-          </Card>
+           {console.log(char.imageUrl)}
+  
+              <Card className="m-2" >
+              <Card.Img src={char.imageUrl || miLogo}/>
+                <Card.Body>
+                  <Card.Title>Nombre: {char.name}</Card.Title>
+                    <Card.Text>
+                        <strong>Tipo: {char.type || 'N/A'}</strong>
+                    </Card.Text>
+                    <div className="d-flex justify-content-center">
+                         <Button variant='primary' >Agregar al carrito</Button>
+                    </div>
+                </Card.Body>
+              </Card>
         </Col>
       ))}
     </Row>
+    
    </Container>
   );
 };
