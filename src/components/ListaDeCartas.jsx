@@ -26,16 +26,15 @@ const ListaDeCartas = () => {
 
   return (
     <Container className='mt-4'>
-    <h1>Personajes DBZ</h1>
-    <Row>
+     <Row>
       {personajes.map(char=>(
         <Col key={char.id} md={4}>
           <Card className="m-2">
           <Card.Img src={char.imageUrl || miLogo}/>
             <Card.Body>
-              <Card.Title>{char.name}</Card.Title>
+              <Card.Title>Nombre: {char.name}</Card.Title>
                 <Card.Text>
-                    <strong>Raza:{char.type || 'N/A'}</strong>
+                    <strong>Tipo: {char.type || 'N/A'}</strong>
                 </Card.Text>
             </Card.Body>
           </Card>
