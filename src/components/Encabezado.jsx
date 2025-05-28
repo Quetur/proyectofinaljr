@@ -1,5 +1,5 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import miLogo from './ProyectoFinal.png';
+import miLogo from './bg.jpg';
 import { Link } from 'react-router-dom';
 
 function Encabezado() {
@@ -10,7 +10,7 @@ function Encabezado() {
             <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
                 <Link to="/">
                     <a>
-                        <img src={miLogo} className="logo" alt="Mi logo" width="50" height="50"/>
+                        <img src={miLogo} className="logo" alt="Mi logo" width="250" height="150"/>
                     </a>
                 </Link>
             </Navbar.Brand>
