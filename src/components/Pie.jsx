@@ -6,7 +6,7 @@ const Pie = () => {
       <Container fluid>   
          <Row className="bg-primary text-white">
             <Col>
-                Talento Tech © Todos los derechos reservados
+                Curso de react dictado por Talent Tech - Alumno Jesus Rosales
             </Col>         
          </Row>      
       </Container>

@@ -16,7 +16,8 @@ function Encabezado() {
             </Navbar.Brand>
             <Nav className="ms-auto align-items-center">
                 <Nav.Link as={Link} to="/" className="me-3">Inicio</Nav.Link>
-                <Nav.Link as={Link} to="/cartas" className="me-3">Cartas de accion</Nav.Link>
+                <Nav.Link as={Link} to="/cartas" className="me-3">Personajes</Nav.Link>
+                <Nav.Link as={Link} to="/Land" className="me-3">Lugares</Nav.Link> 
             </Nav>
             </Container>
         </Navbar>

@@ -2,14 +2,21 @@ import { useEffect, useState } from 'react';
 import { Row, Col, Container, Card, Button } from 'react-bootstrap';
 import miLogo from './micard.png';
 
-const ListaDeCartas = () => { 
+const ListaDeCartas = ({types = null }) => {
+  
   const[personajes,setPersonajes]=useState([]);
   const[loading,setLoading]=useState(true);
 
   useEffect(()=>
     {
+      let url = 'https://api.magicthegathering.io/v1/cards'
+      if (types)
+      {
+        url = `https://api.magicthegathering.io/v1/cards?types=${types}`;
+      }
       // hacer el pedido de la api
-      fetch('https://api.magicthegathering.io/v1/cards')
+      console.log("consulta ", url);
+      fetch(url)
       .then(res=>res.json())
       .then(data=>{
           setPersonajes(data.cards);
@@ -19,7 +26,7 @@ const ListaDeCartas = () => {
         console.error("Error de carga de API",err);
         setLoading(false);
       });
-    },[]);
+    },[types]);
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -31,7 +38,7 @@ const ListaDeCartas = () => {
       {personajes.map(char=>(
          
         <Col key={char.id} md={4}>
-           {console.log(char.imageUrl)}
+           {/*console.log(char.imageUrl)*/}
   
               <Card className="m-2" >
               <Card.Img src={char.imageUrl || miLogo}/>
