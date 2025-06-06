@@ -1,29 +1,27 @@
+import { Card } from "react-bootstrap";
+import { Container, Row, Button } from "react-bootstrap";
+import miLogo from './micard.png';
 
-import { Card } from 'react-bootstrap';
-import { Container, Row, Col } from 'react-bootstrap';
-
-const TarjetaDeCarta = ({ cartas, agregarAlCarrito }) => {
-
+const TarjetaDeCarta = ({ carta, agregarAlCarrito }) => {
   return (
-     //muestro las cards
-      <Container className='mt-4'>
-        <h1>Personajes DBZ</h1>
-        <Row>
-          {cartas.map(char=>(
-            <Col key={char.id} md={4}>
-              <Card className="m-2">
-              <Card.Img src={char.image}/>
+    //muestro las cards
+    <Container className="mt-4">
+
+      <Row>
+       
+              <Card className="m-2" >
+              <Card.Img src={carta.imageUrl || miLogo}/>
                 <Card.Body>
-                  <Card.Title>{char.name}</Card.Title>
+                  <Card.Title>Nombre: {carta.name}</Card.Title>
                     <Card.Text>
-                        <strong>Raza:{char.race || 'N/A'}</strong>
+                        <strong>Tipo: {carta.type || 'N/A'}</strong>
                     </Card.Text>
+                      <Button variant="primary" onClick={() => agregarAlCarrito(carta)}> Agregar al carrito   </Button>
                 </Card.Body>
               </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+    
+      </Row>
+    </Container>
   );
 };
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Row, Col, Container, Card, Button } from 'react-bootstrap';
-import miLogo from './micard.png';
+import TarjetaDeCarta from './TarjetaDeCarta';
+
 
 const ListaDeCartas = ({types = null }) => {
   
@@ -27,36 +28,30 @@ const ListaDeCartas = ({types = null }) => {
         setLoading(false);
       });
     },[types]);
+  
+    const handleAgregarAlCarrito = (personajes) => {
+      alert(`Producto ${personajes.number} agregado al carrito`);
+    };
+    
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <Container className='mt-4'>
+
      
      <Row>
-      {personajes.map(char=>(
+      {personajes.map((carta)=>(
          
-        <Col key={char.id} md={4}>
-           {/*console.log(char.imageUrl)*/}
-  
-              <Card className="m-2" >
-              <Card.Img src={char.imageUrl || miLogo}/>
-                <Card.Body>
-                  <Card.Title>Nombre: {char.name}</Card.Title>
-                    <Card.Text>
-                        <strong>Tipo: {char.type || 'N/A'}</strong>
-                    </Card.Text>
-                    <div className="d-flex justify-content-center">
-                         <Button variant='primary' >Agregar al carrito</Button>
-                    </div>
-                </Card.Body>
-              </Card>
+        <Col key={carta.number} md={4}>
+           {/*console.log(carta.imageUrl)*/
+            console.log(carta.number)}
+          <TarjetaDeCarta carta={carta} agregarAlCarrito={handleAgregarAlCarrito} />
         </Col>
       ))}
     </Row>
     
-   </Container>
+
   );
 };
 
