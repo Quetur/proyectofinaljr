@@ -30,7 +30,7 @@ const ListaDeCartas = ({types = null }) => {
     },[types]);
   
     const handleAgregarAlCarrito = (personajes) => {
-      alert(`Producto ${personajes.number} agregado al carrito`);
+      alert(`Tarjeta ${personajes.number} agregada al carrito`);
     };
     
   if (loading) {
