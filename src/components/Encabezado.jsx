@@ -1,8 +1,13 @@
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Navbar, Nav, Container, Button, Badge } from "react-bootstrap";
 import miLogo from "./bg.jpg";
+import { CartContext } from "./CartContext";
+import imgcarrito from "./carrito.png"; 
 import { Link, useNavigate } from "react-router-dom";
 
 function Encabezado() {
+  const { carrito } = useContext(CartContext);
+  const totalItems =  carrito.reduce((acc, item) => acc + item.cantidad, 0);
   const navigate = useNavigate();
   const isAuth = localStorage.getItem("auth") === "true";
 
@@ -17,7 +22,7 @@ function Encabezado() {
         <Container>
           <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
             <Link to="/">
-              <a>
+              
                 <img
                   src={miLogo}
                   className="logo"
@@ -25,14 +30,13 @@ function Encabezado() {
                   width="250"
                   height="150"
                 />
-              </a>
             </Link>
           </Navbar.Brand>
           <Nav className="ms-auto align-items-center">
             <Nav.Link as={Link} to="/" className="me-3">
               Inicio
             </Nav.Link>
-            <Nav.Link as={Link} to="/cartas" className="me-3">
+            <Nav.Link as={Link} to="/ListarTodasLasCartas" className="me-3">
               Personajes
             </Nav.Link>
             <Nav.Link as={Link} to="/Land" className="me-3">
@@ -57,6 +61,26 @@ function Encabezado() {
               </Button>
             )}
           </Nav>
+          {/*
+          <button rel="stylesheet" to="/carrito">
+            {totalItems > 0 && (
+                <Badge pill bg="danger" className="position-absolute top-0 start-100 translate-middle">
+                  {totalItems}
+                </Badge>
+              )}
+           
+          </button>
+          */}
+      <div>
+        <Link to="/carrito" className="position-relative">
+          <img src={imgcarrito} width={60} alt="Carrito" className="carrito-icon" />
+      
+          <Badge pill bg="danger" className="position-absolute top-0 start-100 translate-middle border border-light rounded-circle">
+            {totalItems}
+          </Badge>
+        </Link>		
+			</div>
+
         </Container>
       </Navbar>
     </>

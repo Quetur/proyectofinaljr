@@ -8,14 +8,15 @@ const TarjetaDeCarta = ({ carta, agregarAlCarrito }) => {
     <Container className="mt-4">
 
       <Row>
-       
-              <Card className="m-2" >
+            <Card className="m-2" >
               <Card.Img src={carta.imageUrl || miLogo}/>
                 <Card.Body>
                   <Card.Title>Nombre: {carta.name}</Card.Title>
                     <Card.Text>
                         <strong>Tipo: {carta.type || 'N/A'}</strong>
                     </Card.Text>
+                   
+
                       <Button variant="primary" onClick={() => agregarAlCarrito(carta)}> Agregar al carrito   </Button>
                 </Card.Body>
               </Card>

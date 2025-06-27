@@ -1,6 +1,6 @@
 import ListaDeCartas from '../components/ListaDeCartas'
 
-const Cartas = () => {
+const ListarTodasLasCartas = () => {
   return (
     <div className="container">
       <h1>Todas las cartas</h1>
@@ -9,4 +9,4 @@ const Cartas = () => {
   )
 }
 
-export default Cartas
+export default ListarTodasLasCartas

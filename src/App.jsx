@@ -1,41 +1,38 @@
 import Encabezado from "./components/Encabezado";
 import Pie from "./components/Pie";
 import Inicio from "./paginas/Inicio";
-import Cartas from "./paginas/Cartas";
+import ListarTodasLasCartas from "./paginas/ListarTodasLasCartas";
 import Land from "./components/Land";
+import { CartProvider } from './components/CartContext';
 import Login from "./paginas/Login";
 import Perfil from './paginas/usuarios';  
 import RutaProtegida from './components/RutaProtegida';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Carrito from './components/Carrito';
 
 
 
 function App() {
-  
+
   return (
-    <div >
+  
+    <CartProvider>
       <Router>
-        <header>
-          <Encabezado />
-        </header>
-        <main>
-          
-          <Routes>    
-                            
-            <Route  path="/" element={<Inicio />}/>
-            <Route path="/cartas" element={<Cartas />} />
-            <Route path="/land" element={<Land />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/perfil/:id" element={
+        <Encabezado />
+        <Routes>             
+          <Route  path="/" element={<Inicio />}/>
+          <Route path="/ListarTodasLasCartas" element={<ListarTodasLasCartas />} />
+          <Route path="/land" element={<Land />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/perfil/:id" element={
                   <RutaProtegida><Perfil /></RutaProtegida>
                } />
-          </Routes>
-        </main>
-        <footer>
-          <Pie />
-        </footer>
+        </Routes>
+        <Pie />
       </Router>
-    </div>
+    </CartProvider>
+
   );
 }
 
