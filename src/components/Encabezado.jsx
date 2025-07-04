@@ -18,7 +18,7 @@ function Encabezado() {
 
   return (
     <>
-      <Navbar bg="primary" data-bs-theme="dark">
+      <Navbar bg="primary" data-bs-theme="dark" expand="lg" className="mb-4">
         <Container>
           <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
             <Link to="/">

@@ -11,14 +11,15 @@ const TarjetaDeCarta = ({ carta, agregarAlCarrito }) => {
       <Row>
             <Card className="m-2" >
                {console.log("tarjeta ", carta)}
-              <Card.Img src={carta.imageUrl || miLogo}/>
+              <Card.Img height="300" src={carta.imageUrl || miLogo}/>
                 <Card.Body>
-                  <Card.Title>Nombre: {carta.name}</Card.Title>
-                    <Card.Text>
-                        <strong>Tipo: {carta.type || 'N/A'}</strong>
+                  <Card.Title style={{ fontSize: '16px' }}>Nombre: {carta.name}</Card.Title>
+                    <Card.Text style={{ fontSize: '14px' }}>
+                        <strong  >Tipo: {carta.type || 'N/A'}</strong>
+                        <strong className="text-end d-block" style={{ fontSize: '16px', textAlign: 'right' }}>${carta.cmc}</strong>
                     </Card.Text>
                     <Card.Text>
-                        <strong>${carta.cmc}</strong>
+                       
                     </Card.Text>
 
                       <Button variant="primary" onClick={() => agregarAlCarrito(carta)}> Agregar al carrito   </Button>
