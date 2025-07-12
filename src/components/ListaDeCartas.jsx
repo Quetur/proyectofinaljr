@@ -3,12 +3,16 @@ import { Row, Col, Container, Card, Button } from 'react-bootstrap';
 import TarjetaDeCarta from './TarjetaDeCarta';
 import { CartContext } from './CartContext';
 
+
 const ListaDeCartas = ({types = null }) => {
   
   const[personajes,setPersonajes]=useState([]);
   const[loading,setLoading]=useState(true);
   const { agregarAlCarrito } = useContext(CartContext);
 
+   // Estado para la página actual
+  const [paginaActual, setPaginaActual] = useState(1);
+  const productosPorPagina = 6;
 
   useEffect(()=>
     {
@@ -30,6 +34,7 @@ const ListaDeCartas = ({types = null }) => {
       })
       .catch(err=>{
         console.error("Error de carga de API",err);
+        
         setLoading(false);
       });
     },[types]);
@@ -41,6 +46,15 @@ const ListaDeCartas = ({types = null }) => {
   if (loading) {
     return <div>Loading...</div>;
   }
+
+  /* Lógica de paginación
+  const indiceUltimoProducto = paginaActual * productosPorPagina; 
+  const indicePrimerProducto = indiceUltimoProducto - productosPorPagina;
+  const productosVisibles = personajes.slice(indicePrimerProducto, indiceUltimoProducto);
+  console.log("productos visibles", productosVisibles);
+  const totalPaginas = Math.ceil(personajes.length / productosPorPagina);
+  console.log("total paginas", totalPaginas);
+*/
 
   return (
     <Row>

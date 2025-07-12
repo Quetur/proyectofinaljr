@@ -10,7 +10,7 @@ const TarjetaDeCarta = ({ carta, agregarAlCarrito }) => {
 
       <Row>
             <Card className="m-2" >
-               {console.log("tarjeta ", carta)}
+               {/*console.log("tarjeta ", carta)*/}
               <Card.Img height="300" src={carta.imageUrl || miLogo}/>
                 <Card.Body>
                   <Card.Title style={{ fontSize: '16px' }}>Nombre: {carta.name}</Card.Title>
