@@ -25,7 +25,7 @@ const Carrito = () => {
       <Table striped bordered hover responsive className="mt-3">
         <thead>
           <tr>
-            <th>Producto</th>
+            <th>Carta</th>
             <th>Precio unitario</th>
             <th>Cantidad</th>
             <th>Total</th>
@@ -52,7 +52,10 @@ const Carrito = () => {
           ))}
         </tbody>
       </Table>
-      <h5 className="text-end">Total a pagar: ${total.toFixed(2)}</h5>
+      <h5 className="text-end">Total : ${total.toFixed(2)}</h5>
+      <h5 className="text-end">IVA: ${(total.toFixed(2)*.21).toFixed(2)}</h5>
+
+      <h5 className="text-end">Total a Pagar: ${(total.toFixed(2)*1.21).toFixed(2)}</h5>
     </Container>
   );
 };
